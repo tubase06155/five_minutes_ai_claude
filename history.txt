@@ -1,0 +1,13 @@
+FIVEMINUTES AI — VERSION HISTORY
+=================================
+
+v0.1.0 — 2026-05-04
+  - Khởi tạo project Next.js 16 (App Router)
+  - Cài đặt: Tailwind CSS v4, Framer Motion, Lucide React
+  - Landing page với các sections: Navbar, Hero, Logos, Features,
+    ProductShowcase, Stats, Testimonials, Pricing, CtaBanner, Footer
+  - Dark theme (zinc-950 background, violet-600 accent)
+  - Scroll animations với Framer Motion whileInView
+  - Mobile-first responsive (375px → 1440px)
+  - Push lên GitHub: https://github.com/tubase06155/five_minutes_ai_claude
+
