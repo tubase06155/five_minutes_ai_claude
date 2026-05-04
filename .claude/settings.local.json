@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mediax.com.vn)",
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "Bash(*)",
+      "PowerShell(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "TodoWrite(*)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}
