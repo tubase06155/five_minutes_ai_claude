@@ -7,50 +7,50 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const plans = [
   {
     name: "Starter",
-    price: "Miễn phí",
+    price: "Free",
     period: "",
-    desc: "Phù hợp để khám phá và thử nghiệm giải pháp AI.",
+    desc: "Perfect for exploring and experimenting with AI solutions.",
     features: [
       "1 AI Agent",
-      "1.000 tin nhắn/tháng",
-      "Doc Copilot (5 tài liệu)",
-      "Hỗ trợ qua email",
+      "1,000 messages / month",
+      "Doc Copilot (5 documents)",
+      "Email support",
     ],
-    cta: "Bắt đầu miễn phí",
+    cta: "Get started free",
     variant: "ghost" as const,
     highlight: false,
   },
   {
     name: "Pro",
-    price: "2.990.000đ",
-    period: "/tháng",
-    desc: "Dành cho doanh nghiệp đang tăng trưởng, cần AI ổn định.",
+    price: "$129",
+    period: "/ month",
+    desc: "For growing businesses that need reliable, stable AI.",
     features: [
-      "5 AI Agent",
-      "50.000 tin nhắn/tháng",
-      "Doc Copilot (không giới hạn)",
-      "CS Copilot tích hợp Zalo/FB",
+      "5 AI Agents",
+      "50,000 messages / month",
+      "Doc Copilot (unlimited)",
+      "CS Copilot with Zalo/FB",
       "Analytics dashboard",
-      "Hỗ trợ ưu tiên 24/7",
+      "Priority 24/7 support",
     ],
-    cta: "Dùng thử 14 ngày",
+    cta: "Start 14-day trial",
     variant: "primary" as const,
     highlight: true,
   },
   {
     name: "Enterprise",
-    price: "Liên hệ",
+    price: "Custom",
     period: "",
-    desc: "Giải pháp tùy chỉnh hoàn toàn cho doanh nghiệp lớn.",
+    desc: "Fully tailored solutions for large organizations.",
     features: [
-      "Không giới hạn AI Agent",
-      "Không giới hạn tin nhắn",
-      "Tích hợp hệ thống legacy",
-      "SLA 99.9% uptime",
+      "Unlimited AI Agents",
+      "Unlimited messages",
+      "Legacy system integration",
+      "99.9% uptime SLA",
       "Dedicated account manager",
       "On-premise deployment",
     ],
-    cta: "Liên hệ tư vấn",
+    cta: "Talk to sales",
     variant: "ghost" as const,
     highlight: false,
   },
@@ -58,14 +58,14 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 sm:py-32">
+    <section id="pricing" className="py-24 sm:py-32 border-t border-[#27272a]">
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#fafafa] tracking-tight mb-4">
-            Bảng giá đơn giản, rõ ràng
+            Simple, transparent pricing
           </h2>
           <p className="text-[#71717a] text-base">
-            Không phí ẩn. Nâng cấp hoặc hủy bất cứ lúc nào.
+            No hidden fees. Upgrade or cancel anytime.
           </p>
         </AnimatedSection>
 
@@ -86,7 +86,7 @@ export default function Pricing() {
               {plan.highlight && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="bg-[#09090b] border border-[#27272a] text-[#a1a1aa] text-xs font-medium px-3 py-1 rounded-full">
-                    Phổ biến nhất
+                    Most popular
                   </span>
                 </div>
               )}

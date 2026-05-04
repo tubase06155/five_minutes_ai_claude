@@ -6,37 +6,37 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const testimonials = [
   {
     quote:
-      "Doc Copilot giúp đội ngũ 200 người của chúng tôi tìm thông tin trong giây thay vì mất 30 phút tìm trong tài liệu. ROI rõ ràng ngay tháng đầu.",
-    name: "Nguyễn Minh Tuấn",
-    role: "CTO, Công ty Fintech",
+      "Doc Copilot helps our 200-person team find information in seconds instead of spending 30 minutes searching through documents. The ROI was clear in the first month.",
+    name: "Nguyen Minh Tuan",
+    role: "CTO, Fintech Company",
     avatar: "N",
   },
   {
     quote:
-      "CS Copilot xử lý 80% yêu cầu khách hàng tự động. Team CSKH của chúng tôi giờ tập trung vào những vấn đề thực sự cần con người.",
-    name: "Trần Thị Hoa",
+      "CS Copilot handles 80% of customer requests automatically. Our support team can now focus on issues that genuinely need human attention.",
+    name: "Tran Thi Hoa",
     role: "Head of Customer Success, E-commerce",
     avatar: "T",
   },
   {
     quote:
-      "Triển khai trong 1 tuần, không cần team AI nội bộ. MediaX hỗ trợ từ A đến Z — từ thiết kế đến integration vào hệ thống legacy của chúng tôi.",
-    name: "Lê Văn Nam",
-    role: "CEO, Chuỗi bán lẻ",
+      "Deployed in one week, no in-house AI team needed. MediaX supported us from A to Z — from design through integration with our legacy systems.",
+    name: "Le Van Nam",
+    role: "CEO, Retail Chain",
     avatar: "L",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="py-24 sm:py-32 bg-[#0d0d10]">
+    <section className="py-24 sm:py-32 border-t border-[#27272a]">
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#fafafa] tracking-tight mb-4">
-            Doanh nghiệp nói gì về chúng tôi
+            What businesses say about us
           </h2>
           <p className="text-[#71717a] text-base">
-            Kết quả thực tế từ các khách hàng đang dùng Fiveminutes AI.
+            Real results from customers already using Fiveminutes AI.
           </p>
         </AnimatedSection>
 
@@ -44,7 +44,6 @@ export default function Testimonials() {
           {testimonials.map((t) => (
             <AnimatedItem key={t.name}>
               <div className="bg-[#18181b] border border-[#27272a] rounded-xl p-6 h-full flex flex-col">
-                {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-4 h-4 text-[#a1a1aa]" fill="currentColor" viewBox="0 0 20 20">
@@ -52,13 +51,11 @@ export default function Testimonials() {
                     </svg>
                   ))}
                 </div>
-
                 <p className="text-[#a1a1aa] text-sm leading-relaxed flex-1 mb-6">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-violet-500 to-violet-800 flex items-center justify-center text-white text-sm font-bold shrink-0">
+                  <div className="w-9 h-9 rounded-full bg-[#27272a] flex items-center justify-center text-[#71717a] text-sm font-bold shrink-0">
                     {t.avatar}
                   </div>
                   <div>

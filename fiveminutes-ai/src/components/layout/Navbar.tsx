@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Button from "@/components/ui/Button";
 
 const navLinks = [
-  { label: "Dịch vụ", href: "#services" },
-  { label: "Sản phẩm", href: "#products" },
-  { label: "Về chúng tôi", href: "#about" },
-  { label: "Bảng giá", href: "#pricing" },
+  { label: "Services", href: "#services" },
+  { label: "Products", href: "#products" },
+  { label: "About", href: "#about" },
+  { label: "Pricing", href: "#pricing" },
 ];
 
 export default function Navbar() {
@@ -30,9 +30,9 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center">
-            <span className="text-white font-bold text-sm">5m</span>
+        <a href="/" className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-[#fafafa] flex items-center justify-center">
+            <span className="text-[#09090b] font-bold text-sm">5m</span>
           </div>
           <span className="text-[#fafafa] font-semibold text-sm tracking-tight">
             Fiveminutes AI
@@ -58,10 +58,10 @@ export default function Navbar() {
             href="mailto:hello@mediax.com.vn"
             className="text-sm text-[#71717a] hover:text-[#fafafa] transition-colors duration-150"
           >
-            Liên hệ
+            Contact
           </a>
           <Button size="sm" variant="ghost">
-            Dùng thử miễn phí
+            Get started
           </Button>
         </div>
 
@@ -72,15 +72,9 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <div className="w-5 space-y-1.5">
-            <span
-              className={`block h-0.5 bg-current transition-transform duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            />
-            <span
-              className={`block h-0.5 bg-current transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block h-0.5 bg-current transition-transform duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            />
+            <span className={`block h-0.5 bg-current transition-transform duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block h-0.5 bg-current transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 bg-current transition-transform duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </div>
         </button>
       </div>
@@ -99,7 +93,7 @@ export default function Navbar() {
             </a>
           ))}
           <Button size="sm" variant="primary" className="w-full mt-2">
-            Dùng thử miễn phí
+            Get started
           </Button>
         </div>
       )}

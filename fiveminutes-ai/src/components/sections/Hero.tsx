@@ -7,7 +7,7 @@ import Badge from "@/components/ui/Badge";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background glow — very subtle */}
+      {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-violet-700/6 rounded-full blur-[140px]" />
       </div>
@@ -32,7 +32,7 @@ export default function Hero() {
         >
           <Badge>
             <span className="w-1.5 h-1.5 rounded-full bg-[#52525b]" />
-            Trí tuệ nhân tạo tiên phong cho Việt Nam
+            Pioneering AI for Vietnam
           </Badge>
         </motion.div>
 
@@ -41,12 +41,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#fafafa] tracking-tight leading-[1.1] mb-6"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#fafafa] tracking-tight leading-[1.05] mb-6"
         >
-          AI sản xuất thực tế
+          Production AI,
           <br />
           <span className="bg-gradient-to-r from-[#fafafa] via-[#d4d4d8] to-[#71717a] bg-clip-text text-transparent">
-            triển khai trong 5 phút
+            live in 5 minutes
           </span>
         </motion.h1>
 
@@ -55,10 +55,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="text-base sm:text-lg text-[#71717a] max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-base sm:text-lg text-[#52525b] max-w-xl mx-auto leading-relaxed mb-10"
         >
-          Từ AI Agent đến Doc Copilot — MediaX xây dựng giải pháp AI hiểu tiếng Việt,
-          hiểu doanh nghiệp Việt. Không cần demo lâu, không cần tích hợp phức tạp.
+          From AI Agents to Doc Copilot — MediaX builds AI solutions that understand
+          Vietnamese language and business. No lengthy demos, no complex integration.
         </motion.p>
 
         {/* CTAs */}
@@ -69,10 +69,10 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16"
         >
           <Button size="lg" variant="primary">
-            Bắt đầu miễn phí →
+            Get started free →
           </Button>
           <Button size="lg" variant="ghost">
-            Xem demo
+            View demo
           </Button>
         </motion.div>
 
@@ -94,12 +94,12 @@ export default function Hero() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-[#52525b]">
-            <span className="text-[#a1a1aa] font-medium">50+</span> doanh nghiệp Việt Nam đang tin dùng
+          <p className="text-sm text-[#3f3f46]">
+            <span className="text-[#a1a1aa] font-medium">50+</span> Vietnamese businesses trust us
           </p>
         </motion.div>
 
-        {/* Terminal/Code preview */}
+        {/* Code preview */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,17 +107,15 @@ export default function Hero() {
           className="mt-20 relative"
         >
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#09090b] z-10 pointer-events-none rounded-b-xl" />
-          <div className="bg-[#18181b] border border-[#27272a] rounded-xl overflow-hidden shadow-[0_0_80px_rgba(124,58,237,0.12)] max-w-2xl mx-auto">
-            {/* Window chrome */}
+          <div className="bg-[#18181b] border border-[#27272a] rounded-xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.4)] max-w-2xl mx-auto">
             <div className="flex items-center gap-2 px-4 py-3 border-b border-[#27272a]">
               <div className="w-3 h-3 rounded-full bg-[#3f3f46]" />
               <div className="w-3 h-3 rounded-full bg-[#3f3f46]" />
               <div className="w-3 h-3 rounded-full bg-[#3f3f46]" />
-              <span className="ml-2 text-xs text-[#52525b] font-mono">fiveminutes-ai.ts</span>
+              <span className="ml-2 text-xs text-[#52525b] font-mono">agent.ts</span>
             </div>
-            {/* Code */}
             <div className="p-6 font-mono text-sm text-left space-y-1">
-              <p className="text-[#52525b]">{`// Khởi tạo AI Agent trong 3 bước`}</p>
+              <p className="text-[#52525b]">{`// Deploy your AI agent in 3 steps`}</p>
               <p>
                 <span className="text-[#a1a1aa]">import </span>
                 <span className="text-[#fafafa]">{"{ FiveminutesAI }"}</span>

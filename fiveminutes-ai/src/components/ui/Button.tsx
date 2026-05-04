@@ -1,6 +1,7 @@
 "use client";
 
 import { forwardRef } from "react";
+import { motion } from "framer-motion";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "ghost";
@@ -10,12 +11,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "primary", size = "md", className = "", children, ...props }, ref) => {
     const base =
-      "inline-flex items-center justify-center font-medium rounded-lg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 disabled:opacity-50 disabled:pointer-events-none";
+      "inline-flex items-center justify-center font-medium rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#71717a] disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden";
 
     const variants = {
       primary: "bg-[#fafafa] hover:bg-[#e4e4e7] text-[#09090b] font-semibold",
-      ghost:
-        "border border-[#27272a] hover:border-[#52525b] text-[#a1a1aa] hover:text-[#fafafa] bg-transparent",
+      ghost: "border border-[#27272a] hover:border-[#52525b] text-[#a1a1aa] hover:text-[#fafafa] bg-transparent",
     };
 
     const sizes = {
@@ -25,13 +25,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     return (
-      <button
+      <motion.button
         ref={ref}
+        whileHover={{ scale: 1.02, y: -1 }}
+        whileTap={{ scale: 0.97, y: 0 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
         className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
-        {...props}
+        {...(props as React.ComponentProps<typeof motion.button>)}
       >
         {children}
-      </button>
+      </motion.button>
     );
   }
 );
