@@ -17,6 +17,9 @@
       "Skill(update-config)",
       "Skill(update-config:*)"
     ],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "c:\\document\\CLAUDE_HELLO_WORLD\\.claude"
+    ]
   }
 }
