@@ -1,6 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -15,10 +20,13 @@ export default function AnimatedSection({
 }: AnimatedSectionProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.5, ease: "easeOut", delay }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0 }}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut", delay } },
+      }}
       className={className}
     >
       {children}
@@ -37,10 +45,10 @@ export function AnimatedList({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
+      viewport={{ once: true, amount: 0 }}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: 0.1 } },
+        visible: { transition: { staggerChildren: 0.08 } },
       }}
       className={className}
     >
@@ -49,15 +57,15 @@ export function AnimatedList({
   );
 }
 
-export function AnimatedItem({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function AnimatedItem({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-      }}
-      className={className}
-    >
+    <motion.div variants={fadeUp} className={className}>
       {children}
     </motion.div>
   );
