@@ -60,7 +60,7 @@ export default function Navbar() {
           >
             Liên hệ
           </a>
-          <Button size="sm" variant="primary">
+          <Button size="sm" variant="ghost">
             Dùng thử miễn phí
           </Button>
         </div>

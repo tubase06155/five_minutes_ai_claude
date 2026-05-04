@@ -17,7 +17,7 @@ export default function AnimatedSection({
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.5, ease: "easeOut", delay }}
       className={className}
     >
@@ -37,7 +37,7 @@ export function AnimatedList({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: 0.1 } },

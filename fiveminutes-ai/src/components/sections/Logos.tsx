@@ -30,7 +30,7 @@ export default function Logos() {
           {logos.map((logo) => (
             <span
               key={logo}
-              className="text-[#3f3f46] font-semibold text-sm tracking-wide hover:text-[#71717a] transition-colors duration-300 cursor-default"
+              className="text-[#27272a] font-semibold text-sm tracking-widest uppercase cursor-default select-none"
             >
               {logo}
             </span>

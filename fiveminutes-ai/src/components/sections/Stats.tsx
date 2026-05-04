@@ -16,10 +16,7 @@ export default function Stats() {
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#fafafa] tracking-tight mb-4">
-            Tại sao chọn{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-violet-600 bg-clip-text text-transparent">
-              Fiveminutes AI?
-            </span>
+            Tại sao chọn Fiveminutes AI?
           </h2>
           <p className="text-[#71717a] max-w-xl mx-auto text-base leading-relaxed">
             Không phải AI chung chung — chúng tôi xây dựng giải pháp hiểu văn hóa và
@@ -33,7 +30,7 @@ export default function Stats() {
               key={stat.label}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.1 }}
               className="text-center"
             >

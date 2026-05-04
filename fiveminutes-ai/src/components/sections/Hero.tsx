@@ -7,10 +7,9 @@ import Badge from "@/components/ui/Badge";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background glow */}
+      {/* Background glow — very subtle */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px]" />
-        <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-violet-800/8 rounded-full blur-[80px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-violet-700/6 rounded-full blur-[140px]" />
       </div>
 
       {/* Grid pattern */}
@@ -23,7 +22,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 py-24 text-center">
+      <div className="relative max-w-5xl mx-auto px-6 py-32 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -32,7 +31,7 @@ export default function Hero() {
           className="flex justify-center mb-8"
         >
           <Badge>
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#52525b]" />
             Trí tuệ nhân tạo tiên phong cho Việt Nam
           </Badge>
         </motion.div>
@@ -85,12 +84,13 @@ export default function Hero() {
           className="flex flex-col items-center gap-4"
         >
           <div className="flex -space-x-2">
-            {[1, 2, 3, 4, 5].map((i) => (
+            {["#3f3f46","#52525b","#3f3f46","#27272a","#52525b"].map((bg, i) => (
               <div
                 key={i}
-                className="w-8 h-8 rounded-full border-2 border-[#09090b] bg-gradient-to-br from-violet-500 to-violet-800 flex items-center justify-center text-white text-xs font-bold"
+                className="w-8 h-8 rounded-full border-2 border-[#09090b] flex items-center justify-center text-[#71717a] text-xs font-semibold"
+                style={{ backgroundColor: bg }}
               >
-                {["A", "B", "C", "D", "E"][i - 1]}
+                {["A","B","C","D","E"][i]}
               </div>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
           className="mt-20 relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#09090b] z-10 pointer-events-none rounded-xl" />
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#09090b] z-10 pointer-events-none rounded-b-xl" />
           <div className="bg-[#18181b] border border-[#27272a] rounded-xl overflow-hidden shadow-[0_0_80px_rgba(124,58,237,0.12)] max-w-2xl mx-auto">
             {/* Window chrome */}
             <div className="flex items-center gap-2 px-4 py-3 border-b border-[#27272a]">
