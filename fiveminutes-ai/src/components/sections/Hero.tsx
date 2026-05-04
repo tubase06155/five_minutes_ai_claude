@@ -46,7 +46,7 @@ export default function Hero() {
         >
           AI sản xuất thực tế
           <br />
-          <span className="bg-gradient-to-r from-violet-400 to-violet-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#fafafa] via-[#d4d4d8] to-[#71717a] bg-clip-text text-transparent">
             triển khai trong 5 phút
           </span>
         </motion.h1>
@@ -116,49 +116,29 @@ export default function Hero() {
               <span className="ml-2 text-xs text-[#52525b] font-mono">fiveminutes-ai.ts</span>
             </div>
             {/* Code */}
-            <div className="p-6 font-mono text-sm text-left">
-              <div className="space-y-1">
-                <p>
-                  <span className="text-[#52525b]">1 </span>
-                  <span className="text-violet-400">import</span>
-                  <span className="text-[#a1a1aa]"> {"{"} FiveminutesAI {"}"} </span>
-                  <span className="text-violet-400">from</span>
-                  <span className="text-green-400"> "@fiveminutes/sdk"</span>
-                </p>
-                <p>
-                  <span className="text-[#52525b]">2 </span>
-                </p>
-                <p>
-                  <span className="text-[#52525b]">3 </span>
-                  <span className="text-blue-400">const</span>
-                  <span className="text-[#a1a1aa]"> ai </span>
-                  <span className="text-[#71717a]">=</span>
-                  <span className="text-yellow-400"> new FiveminutesAI</span>
-                  <span className="text-[#a1a1aa]">{"({"}</span>
-                </p>
-                <p>
-                  <span className="text-[#52525b]">4 </span>
-                  <span className="text-[#a1a1aa]">{"  "}language: </span>
-                  <span className="text-green-400">"vi"</span>
-                  <span className="text-[#a1a1aa]">,</span>
-                </p>
-                <p>
-                  <span className="text-[#52525b]">5 </span>
-                  <span className="text-[#a1a1aa]">{"  "}model: </span>
-                  <span className="text-green-400">"mediax-agent-v2"</span>
-                </p>
-                <p>
-                  <span className="text-[#52525b]">6 </span>
-                  <span className="text-[#a1a1aa]">{"});"}</span>
-                </p>
-                <p>
-                  <span className="text-[#52525b]">7 </span>
-                </p>
-                <p>
-                  <span className="text-[#52525b]">8 </span>
-                  <span className="text-[#52525b]">{"// ✓ Sẵn sàng trong 5 phút"}</span>
-                </p>
-              </div>
+            <div className="p-6 font-mono text-sm text-left space-y-1">
+              <p className="text-[#52525b]">{`// Khởi tạo AI Agent trong 3 bước`}</p>
+              <p>
+                <span className="text-[#a1a1aa]">import </span>
+                <span className="text-[#fafafa]">{"{ FiveminutesAI }"}</span>
+                <span className="text-[#a1a1aa]"> from </span>
+                <span className="text-[#a3e635]">&quot;@mediax/sdk&quot;</span>
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                <span className="text-[#a1a1aa]">const agent = </span>
+                <span className="text-[#fafafa]">new FiveminutesAI</span>
+                <span className="text-[#a1a1aa]">{"({ language: "}</span>
+                <span className="text-[#a3e635]">&quot;vi&quot;</span>
+                <span className="text-[#a1a1aa]">{" })"}</span>
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                <span className="text-[#a1a1aa]">await agent.</span>
+                <span className="text-[#fafafa]">deploy</span>
+                <span className="text-[#a1a1aa]">{"()"}</span>
+                <span className="text-[#52525b]"> {`// ✓ Production ready`}</span>
+              </p>
             </div>
           </div>
         </motion.div>
