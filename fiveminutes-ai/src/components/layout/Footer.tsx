@@ -9,7 +9,7 @@ const footerLinks = {
     { label: "About us", href: "#about" },
     { label: "Blog", href: "#" },
     { label: "Careers", href: "#" },
-    { label: "Contact", href: "mailto:hello@mediax.com.vn" },
+    { label: "Contact", href: "mailto:anhtunb98@gmail.com" },
   ],
   Legal: [
     { label: "Terms of Service", href: "#" },
@@ -33,16 +33,12 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-sm text-[#71717a] leading-relaxed max-w-xs">
-              Pioneering artificial intelligence for Vietnam. A product by MediaX.
+              Pioneering artificial intelligence for Vietnam. A product by Bùi Tú.
             </p>
             <div className="mt-6 space-y-1.5 text-sm text-[#3f3f46]">
-              <p>Floor 5, V1 Tower The Terra An Hung</p>
-              <p>La Khe, Ha Dong, Hanoi</p>
-              <a href="mailto:hello@mediax.com.vn" className="block hover:text-[#a1a1aa] transition-colors">
-                hello@mediax.com.vn
-              </a>
-              <a href="tel:0343488603" className="block hover:text-[#a1a1aa] transition-colors">
-                +84 343 488 603
+              <p>Aichi Prefecture, Japan</p>
+              <a href="mailto:anhtunb98@gmail.com" className="block hover:text-[#a1a1aa] transition-colors">
+                anhtunb98@gmail.com
               </a>
             </div>
           </div>
@@ -68,7 +64,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[#27272a] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#3f3f46]">© 2024 MediaX. All rights reserved.</p>
+          <p className="text-xs text-[#3f3f46]">© 2024 Bùi Tú. All rights reserved.</p>
           <p className="text-xs text-[#3f3f46]">
             Powered by <span className="text-[#71717a]">Fiveminutes AI</span>
           </p>

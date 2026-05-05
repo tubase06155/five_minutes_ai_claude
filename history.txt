@@ -1,6 +1,13 @@
 FIVEMINUTES AI — VERSION HISTORY
 =================================
 
+v0.2.0 — 2026-05-05
+  - Cập nhật thông tin cá nhân: thay thế "MediaX" bằng "Bùi Tú"
+  - Footer: địa chỉ → Aichi Prefecture, Japan; email → anhtunb98@gmail.com
+  - Navbar: cập nhật email liên hệ
+  - Metadata (layout.tsx): cập nhật description và keywords
+  - Project context: cập nhật thông tin chủ sở hữu
+
 v0.1.0 — 2026-05-04
   - Khởi tạo project Next.js 16 (App Router)
   - Cài đặt: Tailwind CSS v4, Framer Motion, Lucide React

@@ -8,14 +8,12 @@ Design direction: dark, minimal, modern — inspired by Resend.com.
 
 ## Company
 
-- **Tên công ty:** MediaX (thương hiệu AI: Fiveminutes AI)
+- **Tên:** Bùi Tú (thương hiệu AI: Fiveminutes AI)
 - **Slogan:** "Trí tuệ nhân tạo tiên phong cho Việt Nam"
 - **Tầm nhìn:** Dẫn đầu AI tại Việt Nam — tương tự vai trò OpenAI toàn cầu
 - **Thị trường:** B2B, doanh nghiệp Việt Nam
-- **Địa chỉ:** Tầng 5, V1 Tower The Terra An Hưng, La Khê, Hà Đông, Hà Nội
-- **Email:** hello@mediax.com.vn
-- **Điện thoại:** 0343 488 603
-- **Website:** https://mediax.com.vn
+- **Địa chỉ:** Aichi Prefecture, Japan
+- **Email:** anhtunb98@gmail.com
 
 ## Dịch vụ cốt lõi
 

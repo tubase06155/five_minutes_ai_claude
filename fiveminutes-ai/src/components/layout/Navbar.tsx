@@ -55,7 +55,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="mailto:hello@mediax.com.vn"
+            href="mailto:anhtunb98@gmail.com"
             className="text-sm text-[#71717a] hover:text-[#fafafa] transition-colors duration-150"
           >
             Contact

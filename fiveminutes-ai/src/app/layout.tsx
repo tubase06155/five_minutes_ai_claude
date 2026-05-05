@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Fiveminutes AI — Trí tuệ nhân tạo tiên phong cho Việt Nam",
   description:
-    "Fiveminutes AI (by MediaX) cung cấp giải pháp AI sản xuất thực tế — AI Agent, tích hợp hệ thống, Doc Copilot — triển khai nhanh cho doanh nghiệp Việt Nam.",
-  keywords: ["AI", "AI Agent", "Việt Nam", "MediaX", "Doc Copilot", "tự động hóa"],
+    "Fiveminutes AI (by Bùi Tú) cung cấp giải pháp AI sản xuất thực tế — AI Agent, tích hợp hệ thống, Doc Copilot — triển khai nhanh cho doanh nghiệp Việt Nam.",
+  keywords: ["AI", "AI Agent", "Việt Nam", "Bùi Tú", "Doc Copilot", "tự động hóa"],
   openGraph: {
     title: "Fiveminutes AI — Trí tuệ nhân tạo tiên phong cho Việt Nam",
     description: "Giải pháp AI sản xuất thực tế cho doanh nghiệp Việt Nam",
