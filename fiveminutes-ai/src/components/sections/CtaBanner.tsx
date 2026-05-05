@@ -1,42 +1,54 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Button from "@/components/ui/Button";
+import { motion, type Variants } from "framer-motion";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 export default function CtaBanner() {
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden border-t border-[#27272a]">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-violet-700/5 rounded-full blur-[100px]" />
-      </div>
-
-      <div className="relative max-w-3xl mx-auto px-6 text-center">
+    <section className="bg-[#0052FF] py-24 sm:py-32">
+      <div className="max-w-5xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#fafafa] tracking-tight mb-6">
-            Ready to bring AI
-            <br />
-            into your business?
-          </h2>
-          <p className="text-[#52525b] text-base leading-relaxed mb-10 max-w-xl mx-auto">
-            Book a free consultation with a MediaX expert. We&apos;ll analyze your specific
-            use case and propose a tailored solution in 30 minutes.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button size="lg" variant="primary">
-              Book a free consultation →
-            </Button>
-            <Button size="lg" variant="ghost">
-              Watch a live demo
-            </Button>
+          <div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white tracking-tight leading-tight">
+              Sẵn sàng đưa AI vào
+              <br />
+              <span className="font-semibold">doanh nghiệp của bạn?</span>
+            </h2>
           </div>
-          <p className="mt-6 text-xs text-[#3f3f46]">
-            No credit card required · Response within 24h · hello@mediax.com.vn
-          </p>
+
+          <div>
+            <p className="text-blue-200 text-base leading-relaxed mb-8">
+              Đặt lịch tư vấn miễn phí với chuyên gia MediaX.
+              Chúng tôi sẽ phân tích use case và đề xuất giải pháp phù hợp trong 30 phút.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="mailto:anhtunb98@gmail.com"
+                className="inline-flex items-center justify-center bg-white text-[#0052FF] text-sm font-semibold px-7 py-3.5 hover:bg-blue-50 transition-colors"
+              >
+                Đặt lịch tư vấn miễn phí →
+              </a>
+              <a
+                href="#products"
+                className="inline-flex items-center justify-center border border-blue-400 text-white text-sm px-7 py-3.5 hover:border-white transition-colors"
+              >
+                Xem demo trực tiếp
+              </a>
+            </div>
+            <p className="mt-5 text-xs text-blue-300">
+              Không yêu cầu thẻ tín dụng · Phản hồi trong 24h · anhtunb98@gmail.com
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

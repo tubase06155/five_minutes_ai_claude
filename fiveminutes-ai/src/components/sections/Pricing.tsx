@@ -1,127 +1,150 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Button from "@/components/ui/Button";
-import AnimatedSection from "@/components/ui/AnimatedSection";
+import { motion, type Variants } from "framer-motion";
 
 const plans = [
   {
     name: "Starter",
     price: "Free",
     period: "",
-    desc: "Perfect for exploring and experimenting with AI solutions.",
+    desc: "Khám phá và thử nghiệm giải pháp AI.",
     features: [
       "1 AI Agent",
-      "1,000 messages / month",
-      "Doc Copilot (5 documents)",
-      "Email support",
+      "1,000 tin nhắn / tháng",
+      "Doc Copilot (5 tài liệu)",
+      "Hỗ trợ qua email",
     ],
-    cta: "Get started free",
-    variant: "ghost" as const,
+    cta: "Bắt đầu miễn phí",
     highlight: false,
   },
   {
     name: "Pro",
     price: "$129",
-    period: "/ month",
-    desc: "For growing businesses that need reliable, stable AI.",
+    period: "/ tháng",
+    desc: "Cho doanh nghiệp đang phát triển cần AI ổn định.",
     features: [
       "5 AI Agents",
-      "50,000 messages / month",
-      "Doc Copilot (unlimited)",
-      "CS Copilot with Zalo/FB",
+      "50,000 tin nhắn / tháng",
+      "Doc Copilot (không giới hạn)",
+      "CS Copilot với Zalo/Facebook",
       "Analytics dashboard",
-      "Priority 24/7 support",
+      "Hỗ trợ ưu tiên 24/7",
     ],
-    cta: "Start 14-day trial",
-    variant: "primary" as const,
+    cta: "Dùng thử 14 ngày",
     highlight: true,
   },
   {
     name: "Enterprise",
-    price: "Custom",
+    price: "Liên hệ",
     period: "",
-    desc: "Fully tailored solutions for large organizations.",
+    desc: "Giải pháp tùy chỉnh cho tổ chức lớn.",
     features: [
-      "Unlimited AI Agents",
-      "Unlimited messages",
-      "Legacy system integration",
-      "99.9% uptime SLA",
-      "Dedicated account manager",
-      "On-premise deployment",
+      "Không giới hạn AI Agents",
+      "Không giới hạn tin nhắn",
+      "Tích hợp hệ thống legacy",
+      "SLA uptime 99.9%",
+      "Account manager riêng",
+      "Triển khai on-premise",
     ],
-    cta: "Talk to sales",
-    variant: "ghost" as const,
+    cta: "Liên hệ tư vấn",
     highlight: false,
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 sm:py-32 border-t border-[#27272a]">
+    <section id="pricing" className="py-24 sm:py-32 bg-[#f7f7f7] border-t border-[#e8e8e8]">
       <div className="max-w-6xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#fafafa] tracking-tight mb-4">
-            Simple, transparent pricing
-          </h2>
-          <p className="text-[#71717a] text-base">
-            No hidden fees. Upgrade or cancel anytime.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <p className="text-[11px] text-[#bbbbbb] uppercase tracking-[0.2em] mb-5">
+            Pricing
           </p>
-        </AnimatedSection>
+          <h2 className="text-3xl sm:text-4xl font-light text-[#111111] tracking-tight">
+            Đơn giản, <span className="font-semibold">minh bạch</span>
+          </h2>
+          <p className="text-[#999999] text-sm mt-3">
+            Không phí ẩn. Nâng cấp hoặc hủy bất cứ lúc nào.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.1 }}
-              className={`relative rounded-xl p-6 flex flex-col ${
-                plan.highlight
-                  ? "bg-[#fafafa] border border-[#fafafa]"
-                  : "bg-[#18181b] border border-[#27272a]"
-              }`}
-            >
-              {plan.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-[#09090b] border border-[#27272a] text-[#a1a1aa] text-xs font-medium px-3 py-1 rounded-full">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e8e8]"
+        >
+          {plans.map((plan) => (
+            <motion.div key={plan.name} variants={itemVariants}>
+              <div
+                className={`flex flex-col h-full p-8 ${
+                  plan.highlight ? "bg-[#111111]" : "bg-white"
+                }`}
+              >
+                {plan.highlight && (
+                  <span className="text-[10px] text-[#0052FF] uppercase tracking-[0.15em] mb-5">
                     Most popular
                   </span>
-                </div>
-              )}
+                )}
 
-              <div className="mb-6">
-                <h3 className={`font-semibold text-base mb-1 ${plan.highlight ? "text-[#09090b]" : "text-[#fafafa]"}`}>{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-2">
-                  <span className={`text-3xl font-bold ${plan.highlight ? "text-[#09090b]" : "text-[#fafafa]"}`}>{plan.price}</span>
-                  {plan.period && (
-                    <span className={`text-sm ${plan.highlight ? "text-[#52525b]" : "text-[#71717a]"}`}>{plan.period}</span>
-                  )}
+                <div className="mb-8">
+                  <h3 className={`font-medium text-sm mb-4 ${plan.highlight ? "text-[#aaaaaa]" : "text-[#999999]"}`}>
+                    {plan.name}
+                  </h3>
+                  <div className="flex items-baseline gap-1 mb-3">
+                    <span className={`text-4xl font-semibold tracking-tight ${plan.highlight ? "text-white" : "text-[#111111]"}`}>
+                      {plan.price}
+                    </span>
+                    {plan.period && (
+                      <span className={`text-sm ${plan.highlight ? "text-[#666666]" : "text-[#999999]"}`}>
+                        {plan.period}
+                      </span>
+                    )}
+                  </div>
+                  <p className={`text-sm leading-relaxed ${plan.highlight ? "text-[#666666]" : "text-[#888888]"}`}>
+                    {plan.desc}
+                  </p>
                 </div>
-                <p className={`text-sm ${plan.highlight ? "text-[#52525b]" : "text-[#71717a]"}`}>{plan.desc}</p>
+
+                <ul className="space-y-3 flex-1 mb-8">
+                  {plan.features.map((f) => (
+                    <li key={f} className={`flex items-center gap-3 text-sm ${plan.highlight ? "text-[#888888]" : "text-[#666666]"}`}>
+                      <span className={`w-1 h-1 rounded-full shrink-0 ${plan.highlight ? "bg-[#0052FF]" : "bg-[#cccccc]"}`} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="mailto:hello@mediax.com.vn"
+                  className={`block text-center text-sm py-3 transition-colors ${
+                    plan.highlight
+                      ? "bg-[#0052FF] text-white hover:bg-[#0041CC]"
+                      : "border border-[#e8e8e8] text-[#111111] hover:border-[#cccccc] hover:bg-[#f7f7f7]"
+                  }`}
+                >
+                  {plan.cta}
+                </a>
               </div>
-
-              <ul className="space-y-3 flex-1 mb-8">
-                {plan.features.map((f) => (
-                  <li key={f} className={`flex items-center gap-3 text-sm ${plan.highlight ? "text-[#3f3f46]" : "text-[#a1a1aa]"}`}>
-                    <svg className={`w-4 h-4 shrink-0 ${plan.highlight ? "text-[#3f3f46]" : "text-[#52525b]"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <Button
-                variant={plan.highlight ? "ghost" : plan.variant}
-                className={`w-full ${plan.highlight ? "border-[#09090b]/20 text-[#09090b] hover:text-[#09090b] hover:border-[#09090b]/40 bg-transparent" : ""}`}
-              >
-                {plan.cta}
-              </Button>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,75 +1,88 @@
 "use client";
 
-import { AnimatedList, AnimatedItem } from "@/components/ui/AnimatedSection";
-import AnimatedSection from "@/components/ui/AnimatedSection";
+import { motion, type Variants } from "framer-motion";
 import { Bot, Plug, FileText, MessageSquare, Globe, Zap } from "lucide-react";
 
 const features = [
   {
     Icon: Bot,
     title: "Custom AI Agent",
-    desc: "Design AI Agents tailored to your business — 24/7 customer support, internal operations automation, and organizational knowledge management.",
+    desc: "AI Agent thiết kế theo đặc thù doanh nghiệp — hỗ trợ khách hàng 24/7, tự động hóa quy trình nội bộ.",
   },
   {
     Icon: Plug,
     title: "AI Integration",
-    desc: "Integrate AI into your existing systems without rebuilding from scratch. Automate workflows, save time and reduce operational costs.",
+    desc: "Tích hợp AI vào hệ thống hiện có. Tự động hóa quy trình, tiết kiệm thời gian và chi phí vận hành.",
   },
   {
     Icon: FileText,
     title: "Doc Copilot",
-    desc: "Turn internal documents into an interactive knowledge assistant. Employees ask — AI answers accurately from your document sources.",
+    desc: "Biến tài liệu nội bộ thành trợ lý tri thức tương tác. Nhân viên hỏi — AI trả lời chính xác.",
   },
   {
     Icon: MessageSquare,
     title: "CS Copilot",
-    desc: "AI-powered customer support that handles volume automatically, reduces team load, and improves response speed and experience quality.",
+    desc: "AI hỗ trợ chăm sóc khách hàng tự động, giảm tải đội ngũ, tăng tốc độ phản hồi.",
   },
   {
     Icon: Globe,
     title: "Vietnamese-first",
-    desc: "Optimized specifically for Vietnamese language and market — understanding context, culture, and local business nuances.",
+    desc: "Tối ưu cho tiếng Việt và thị trường Việt Nam — hiểu ngữ cảnh, văn hóa và đặc thù kinh doanh địa phương.",
   },
   {
     Icon: Zap,
     title: "Fast deployment",
-    desc: "From requirements to production in 5 days. No in-house AI team needed. No large infrastructure investment required.",
+    desc: "Từ yêu cầu đến production trong 5 ngày. Không cần đội AI nội bộ, không đầu tư hạ tầng lớn.",
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 export default function Features() {
   return (
-    <section id="services" className="py-24 sm:py-32">
+    <section id="services" className="py-24 sm:py-32 bg-[#f7f7f7]">
       <div className="max-w-6xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-16">
-          <p className="text-xs text-[#3f3f46] uppercase tracking-widest mb-4 font-medium">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <p className="text-[11px] text-[#bbbbbb] uppercase tracking-[0.2em] mb-5">
             Services
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#fafafa] tracking-tight mb-4">
-            Everything you need to
-            <br />
-            <span className="bg-gradient-to-r from-[#fafafa] to-[#71717a] bg-clip-text text-transparent">
-              ship AI to production
-            </span>
+          <h2 className="text-3xl sm:text-4xl font-light text-[#111111] tracking-tight leading-tight max-w-lg">
+            Tất cả những gì bạn cần để{" "}
+            <span className="font-semibold">đưa AI vào production</span>
           </h2>
-          <p className="text-[#71717a] max-w-xl mx-auto text-base leading-relaxed">
-            We don&apos;t sell demos. We build AI agents that run in your real production environment.
-          </p>
-        </AnimatedSection>
+        </motion.div>
 
-        <AnimatedList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#27272a] rounded-xl overflow-hidden border border-[#27272a]">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8e8]"
+        >
           {features.map((f) => (
-            <AnimatedItem key={f.title}>
-              <div className="group bg-[#09090b] hover:bg-[#18181b] transition-colors duration-300 p-8 h-full">
-                <div className="w-9 h-9 rounded-lg bg-[#18181b] border border-[#27272a] flex items-center justify-center mb-5 group-hover:border-[#3f3f46] transition-colors">
-                  <f.Icon className="w-4 h-4 text-[#a1a1aa]" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-[#fafafa] font-semibold text-sm mb-2">{f.title}</h3>
-                <p className="text-[#71717a] text-sm leading-relaxed">{f.desc}</p>
+            <motion.div key={f.title} variants={itemVariants}>
+              <div className="group bg-[#f7f7f7] hover:bg-white transition-colors duration-300 p-8 h-full">
+                <f.Icon className="w-5 h-5 text-[#999999] mb-6 group-hover:text-[#0052FF] transition-colors" strokeWidth={1.5} />
+                <h3 className="text-[#111111] font-medium text-sm mb-2">{f.title}</h3>
+                <p className="text-[#888888] text-sm leading-relaxed">{f.desc}</p>
               </div>
-            </AnimatedItem>
+            </motion.div>
           ))}
-        </AnimatedList>
+        </motion.div>
       </div>
     </section>
   );

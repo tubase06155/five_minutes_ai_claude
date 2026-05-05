@@ -1,7 +1,6 @@
 "use client";
 
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import { AnimatedList, AnimatedItem } from "@/components/ui/AnimatedSection";
+import { motion, type Variants } from "framer-motion";
 
 const integrations = [
   { name: "Zalo", cat: "Messaging" },
@@ -18,40 +17,62 @@ const integrations = [
   { name: "Webhook", cat: "API" },
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4 } },
+};
+
 export default function Integrations() {
   return (
-    <section className="py-24 sm:py-32 border-t border-[#27272a]">
+    <section className="py-24 sm:py-32 bg-[#f7f7f7] border-t border-[#e8e8e8]">
       <div className="max-w-6xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-14">
-          <p className="text-xs text-[#3f3f46] uppercase tracking-widest mb-4">Integrations</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#fafafa] tracking-tight mb-4">
-            Connect with every platform
-            <br />
-            <span className="bg-gradient-to-r from-[#fafafa] to-[#52525b] bg-clip-text text-transparent">
-              you already use
-            </span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-14"
+        >
+          <p className="text-[11px] text-[#bbbbbb] uppercase tracking-[0.2em] mb-5">
+            Integrations
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-light text-[#111111] tracking-tight leading-tight max-w-lg">
+            Kết nối với mọi nền tảng{" "}
+            <span className="font-semibold">bạn đang dùng</span>
           </h2>
-          <p className="text-[#71717a] text-base max-w-lg mx-auto">
-            Fiveminutes AI integrates seamlessly with your software ecosystem — no rebuilding required.
-          </p>
-        </AnimatedSection>
+        </motion.div>
 
-        <AnimatedList className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-[#27272a] border border-[#27272a] rounded-xl overflow-hidden">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-[#e8e8e8]"
+        >
           {integrations.map((item) => (
-            <AnimatedItem key={item.name}>
-              <div className="bg-[#09090b] hover:bg-[#111113] transition-colors duration-200 p-5 flex flex-col gap-1.5">
-                <span className="text-[10px] text-[#52525b] uppercase tracking-widest">{item.cat}</span>
-                <span className="text-sm text-[#a1a1aa] font-medium">{item.name}</span>
+            <motion.div key={item.name} variants={itemVariants}>
+              <div className="bg-[#f7f7f7] hover:bg-white transition-colors duration-200 p-5 flex flex-col gap-1">
+                <span className="text-[10px] text-[#bbbbbb] uppercase tracking-[0.15em]">{item.cat}</span>
+                <span className="text-sm text-[#444444] font-medium">{item.name}</span>
               </div>
-            </AnimatedItem>
+            </motion.div>
           ))}
-        </AnimatedList>
+        </motion.div>
 
-        <AnimatedSection delay={0.2} className="mt-8 text-center">
-          <p className="text-sm text-[#3f3f46]">
-            + REST API & Webhook support for any other system
-          </p>
-        </AnimatedSection>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-6 text-sm text-[#bbbbbb]"
+        >
+          + REST API & Webhook hỗ trợ mọi hệ thống khác
+        </motion.p>
       </div>
     </section>
   );

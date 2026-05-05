@@ -1,145 +1,167 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
+import { motion, type Variants } from "framer-motion";
+
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut", delay: i * 0.12 },
+  }),
+};
+
+function AIVisual() {
+  return (
+    <div className="relative w-full h-full flex items-center justify-center">
+      <svg
+        viewBox="0 0 480 560"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full max-w-sm lg:max-w-none"
+      >
+        {/* Head silhouette */}
+        <ellipse cx="240" cy="200" rx="120" ry="145" fill="#f0f0f0" />
+        <ellipse cx="240" cy="380" rx="180" ry="80" fill="#f0f0f0" />
+
+        {/* Face gradient */}
+        <defs>
+          <radialGradient id="faceGrad" cx="40%" cy="35%" r="60%">
+            <stop offset="0%" stopColor="#e8e8e8" />
+            <stop offset="100%" stopColor="#d0d0d0" />
+          </radialGradient>
+          <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#0052FF" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#0052FF" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Glow behind head */}
+        <ellipse cx="240" cy="240" rx="200" ry="220" fill="url(#glowGrad)" />
+
+        {/* Head shape refined */}
+        <path
+          d="M145 230 C140 160 175 95 240 88 C305 95 340 160 335 230 C335 300 310 360 280 390 L240 410 L200 390 C170 360 145 300 145 230Z"
+          fill="url(#faceGrad)"
+        />
+
+        {/* Neck */}
+        <rect x="215" y="390" width="50" height="60" rx="8" fill="#d8d8d8" />
+
+        {/* Shoulders */}
+        <path d="M60 510 C60 450 140 430 200 415 L240 410 L280 415 C340 430 420 450 420 510" stroke="#d0d0d0" strokeWidth="1" fill="#e8e8e8" />
+
+        {/* Subtle face features */}
+        <ellipse cx="210" cy="220" rx="10" ry="6" fill="#c0c0c0" opacity="0.5" />
+        <ellipse cx="270" cy="220" rx="10" ry="6" fill="#c0c0c0" opacity="0.5" />
+        <path d="M220 270 Q240 285 260 270" stroke="#c0c0c0" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.6" />
+
+        {/* Scanning lines / AI indicator */}
+        <line x1="100" y1="180" x2="155" y2="215" stroke="#0052FF" strokeWidth="0.5" opacity="0.3" />
+        <line x1="100" y1="230" x2="143" y2="230" stroke="#0052FF" strokeWidth="0.5" opacity="0.3" />
+        <line x1="100" y1="280" x2="148" y2="255" stroke="#0052FF" strokeWidth="0.5" opacity="0.3" />
+
+        <line x1="380" y1="180" x2="325" y2="215" stroke="#0052FF" strokeWidth="0.5" opacity="0.3" />
+        <line x1="380" y1="230" x2="337" y2="230" stroke="#0052FF" strokeWidth="0.5" opacity="0.3" />
+        <line x1="380" y1="280" x2="332" y2="255" stroke="#0052FF" strokeWidth="0.5" opacity="0.3" />
+
+        {/* Dots at scan line ends */}
+        <circle cx="100" cy="180" r="2.5" fill="#0052FF" opacity="0.4" />
+        <circle cx="100" cy="230" r="2.5" fill="#0052FF" opacity="0.4" />
+        <circle cx="100" cy="280" r="2.5" fill="#0052FF" opacity="0.4" />
+        <circle cx="380" cy="180" r="2.5" fill="#0052FF" opacity="0.4" />
+        <circle cx="380" cy="230" r="2.5" fill="#0052FF" opacity="0.4" />
+        <circle cx="380" cy="280" r="2.5" fill="#0052FF" opacity="0.4" />
+      </svg>
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-violet-700/6 rounded-full blur-[140px]" />
-      </div>
+    <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-14">
+      <div className="max-w-6xl mx-auto px-6 w-full py-24 lg:py-0 lg:min-h-screen lg:flex lg:items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-0 items-center w-full">
 
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(#a1a1aa 1px, transparent 1px), linear-gradient(90deg, #a1a1aa 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+          {/* Left: Text */}
+          <div className="lg:pr-16">
+            <motion.p
+              custom={0}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-xs text-[#999999] uppercase tracking-[0.2em] mb-8"
+            >
+              Fiveminutes AI — by MediaX
+            </motion.p>
 
-      <div className="relative max-w-5xl mx-auto px-6 py-32 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex justify-center mb-8"
-        >
-          <Badge>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#52525b]" />
-            Pioneering AI for Vietnam
-          </Badge>
-        </motion.div>
+            <motion.h1
+              custom={1}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#111111] tracking-tight leading-[1.1] mb-8"
+            >
+              Trí tuệ nhân tạo
+              <br />
+              <span className="font-semibold">tiên phong</span>
+              <br />
+              cho Việt Nam
+            </motion.h1>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#fafafa] tracking-tight leading-[1.05] mb-6"
-        >
-          Production AI,
-          <br />
-          <span className="bg-gradient-to-r from-[#fafafa] via-[#d4d4d8] to-[#71717a] bg-clip-text text-transparent">
-            live in 5 minutes
-          </span>
-        </motion.h1>
+            <motion.p
+              custom={2}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-base text-[#777777] leading-relaxed max-w-sm mb-10"
+            >
+              AI Agent, Doc Copilot, CS Copilot — triển khai trong 5 ngày.
+              Không cần đội ngũ AI nội bộ.
+            </motion.p>
 
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="text-base sm:text-lg text-[#52525b] max-w-xl mx-auto leading-relaxed mb-10"
-        >
-          From AI Agents to Doc Copilot — MediaX builds AI solutions that understand
-          Vietnamese language and business. No lengthy demos, no complex integration.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16"
-        >
-          <Button size="lg" variant="primary">
-            Get started free →
-          </Button>
-          <Button size="lg" variant="ghost">
-            View demo
-          </Button>
-        </motion.div>
-
-        {/* Social proof */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-          className="flex flex-col items-center gap-4"
-        >
-          <div className="flex -space-x-2">
-            {["#3f3f46","#52525b","#3f3f46","#27272a","#52525b"].map((bg, i) => (
-              <div
-                key={i}
-                className="w-8 h-8 rounded-full border-2 border-[#09090b] flex items-center justify-center text-[#71717a] text-xs font-semibold"
-                style={{ backgroundColor: bg }}
+            <motion.div
+              custom={3}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col sm:flex-row gap-3"
+            >
+              <a
+                href="#pricing"
+                className="inline-flex items-center justify-center bg-[#111111] text-white text-sm px-7 py-3.5 hover:bg-[#333333] transition-colors"
               >
-                {["A","B","C","D","E"][i]}
-              </div>
-            ))}
-          </div>
-          <p className="text-sm text-[#3f3f46]">
-            <span className="text-[#a1a1aa] font-medium">50+</span> Vietnamese businesses trust us
-          </p>
-        </motion.div>
+                Bắt đầu miễn phí →
+              </a>
+              <a
+                href="#products"
+                className="inline-flex items-center justify-center border border-[#e8e8e8] text-[#555555] text-sm px-7 py-3.5 hover:border-[#cccccc] hover:text-[#111111] transition-colors"
+              >
+                Xem demo
+              </a>
+            </motion.div>
 
-        {/* Code preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-          className="mt-20 relative"
-        >
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#09090b] z-10 pointer-events-none rounded-b-xl" />
-          <div className="bg-[#18181b] border border-[#27272a] rounded-xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.4)] max-w-2xl mx-auto">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-[#27272a]">
-              <div className="w-3 h-3 rounded-full bg-[#3f3f46]" />
-              <div className="w-3 h-3 rounded-full bg-[#3f3f46]" />
-              <div className="w-3 h-3 rounded-full bg-[#3f3f46]" />
-              <span className="ml-2 text-xs text-[#52525b] font-mono">agent.ts</span>
-            </div>
-            <div className="p-6 font-mono text-sm text-left space-y-1">
-              <p className="text-[#52525b]">{`// Deploy your AI agent in 3 steps`}</p>
-              <p>
-                <span className="text-[#a1a1aa]">import </span>
-                <span className="text-[#fafafa]">{"{ FiveminutesAI }"}</span>
-                <span className="text-[#a1a1aa]"> from </span>
-                <span className="text-[#a3e635]">&quot;@mediax/sdk&quot;</span>
-              </p>
-              <p>&nbsp;</p>
-              <p>
-                <span className="text-[#a1a1aa]">const agent = </span>
-                <span className="text-[#fafafa]">new FiveminutesAI</span>
-                <span className="text-[#a1a1aa]">{"({ language: "}</span>
-                <span className="text-[#a3e635]">&quot;vi&quot;</span>
-                <span className="text-[#a1a1aa]">{" })"}</span>
-              </p>
-              <p>&nbsp;</p>
-              <p>
-                <span className="text-[#a1a1aa]">await agent.</span>
-                <span className="text-[#fafafa]">deploy</span>
-                <span className="text-[#a1a1aa]">{"()"}</span>
-                <span className="text-[#52525b]"> {`// ✓ Production ready`}</span>
-              </p>
-            </div>
+            <motion.p
+              custom={4}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              className="mt-10 text-xs text-[#bbbbbb]"
+            >
+              50+ doanh nghiệp Việt Nam đang sử dụng
+            </motion.p>
           </div>
-        </motion.div>
+
+          {/* Right: Visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+            className="relative h-[420px] lg:h-[580px]"
+          >
+            <AIVisual />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
