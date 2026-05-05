@@ -1,87 +1,72 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { AnimatedList, AnimatedItem } from "@/components/ui/AnimatedSection";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const testimonials = [
   {
     quote:
-      "Doc Copilot giúp đội ngũ 200 người tìm thông tin trong vài giây thay vì mất 30 phút tìm trong tài liệu. ROI rõ ràng ngay trong tháng đầu.",
-    name: "Nguyễn Minh Tuấn",
+      "Doc Copilot helps our 200-person team find information in seconds instead of spending 30 minutes searching through documents. The ROI was clear in the first month.",
+    name: "Nguyen Minh Tuan",
     role: "CTO, Fintech Company",
     avatar: "N",
   },
   {
     quote:
-      "CS Copilot xử lý 80% yêu cầu khách hàng tự động. Đội support giờ tập trung vào những vấn đề thực sự cần sự chú ý của con người.",
-    name: "Trần Thị Hoa",
+      "CS Copilot handles 80% of customer requests automatically. Our support team can now focus on issues that genuinely need human attention.",
+    name: "Tran Thi Hoa",
     role: "Head of Customer Success, E-commerce",
     avatar: "T",
   },
   {
     quote:
-      "Triển khai trong một tuần, không cần đội AI nội bộ. MediaX hỗ trợ từ A đến Z — từ thiết kế đến tích hợp với hệ thống legacy của chúng tôi.",
-    name: "Lê Văn Nam",
+      "Deployed in one week, no in-house AI team needed. MediaX supported us from A to Z — from design through integration with our legacy systems.",
+    name: "Le Van Nam",
     role: "CEO, Retail Chain",
     avatar: "L",
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
 export default function Testimonials() {
   return (
-    <section className="py-24 sm:py-32 border-t border-[#e8e8e8]">
+    <section className="py-24 sm:py-32 border-t border-[#27272a]">
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <p className="text-[11px] text-[#bbbbbb] uppercase tracking-[0.2em] mb-5">
-            Testimonials
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-light text-[#111111] tracking-tight">
-            Doanh nghiệp nói gì về{" "}
-            <span className="font-semibold">Fiveminutes AI</span>
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#fafafa] tracking-tight mb-4">
+            What businesses say about us
           </h2>
-        </motion.div>
+          <p className="text-[#71717a] text-base">
+            Real results from customers already using Fiveminutes AI.
+          </p>
+        </AnimatedSection>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e8e8]"
-        >
+        <AnimatedList className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
-            <motion.div key={t.name} variants={itemVariants}>
-              <div className="bg-white p-8 h-full flex flex-col">
-                <p className="text-[#444444] text-sm leading-relaxed flex-1 mb-8">
+            <AnimatedItem key={t.name}>
+              <div className="bg-[#18181b] border border-[#27272a] rounded-xl p-6 h-full flex flex-col">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-4 h-4 text-[#a1a1aa]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-[#a1a1aa] text-sm leading-relaxed flex-1 mb-6">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-[#111111] flex items-center justify-center text-white text-xs font-semibold shrink-0">
+                  <div className="w-9 h-9 rounded-full bg-[#27272a] flex items-center justify-center text-[#71717a] text-sm font-bold shrink-0">
                     {t.avatar}
                   </div>
                   <div>
-                    <p className="text-[#111111] text-sm font-medium">{t.name}</p>
-                    <p className="text-[#bbbbbb] text-xs">{t.role}</p>
+                    <p className="text-[#fafafa] text-sm font-medium">{t.name}</p>
+                    <p className="text-[#52525b] text-xs">{t.role}</p>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </AnimatedItem>
           ))}
-        </motion.div>
+        </AnimatedList>
       </div>
     </section>
   );
